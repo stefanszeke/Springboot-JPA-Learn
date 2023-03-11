@@ -6,6 +6,10 @@ import sk.springjpa.Service.VehicleService;
 import sk.springjpa.entity_abstract.SportsCar;
 import sk.springjpa.entity_abstract.Truck;
 import sk.springjpa.entity_abstract.Vehicle;
+import sk.springjpa.entity_relations.BankAccount;
+import sk.springjpa.entity_relations.Car;
+import sk.springjpa.entity_relations.Course;
+import sk.springjpa.entity_relations.Person;
 
 import java.util.List;
 
@@ -17,6 +21,42 @@ public class DemoApp {
 
     public void runRelations() {
         System.out.println("\n ...\n");
+
+        Person person = new Person();
+        person.setName("jack");
+
+        Person person2 = new Person();
+        person2.setName("John");
+
+        BankAccount bankAccount = new BankAccount();
+        bankAccount.setAccountNumber("465");
+        bankAccount.setPerson(person);
+        bankAccount.setBalance(1000);
+        person.setBankAccount(bankAccount);
+
+        Car car1 = new Car();
+        car1.setBrand("Audi");
+        car1.setYear(2005);
+        Car car2 = new Car();
+        car2.setBrand("Seat");
+        car2.setYear(2003);
+        person.addCar(car1);
+        person.addCar(car2);
+
+        Course course1 = new Course();
+        course1.setName("Programming");
+        Course course2 = new Course();
+        course2.setName("Cooking");
+
+        person.addCourse(course1);
+        person.addCourse(course2);
+
+
+
+        System.out.println(person);
+        System.out.println(person2);
+
+
 
         System.out.println("\n ...\n");
     }

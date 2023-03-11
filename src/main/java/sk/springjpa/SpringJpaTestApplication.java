@@ -15,8 +15,8 @@ public class SpringJpaTestApplication {
 
 	@Bean
 	public CommandLineRunner runnerSimple(DemoApp demoApp) {
-		return args -> demoApp.runAbstract();
-//		return args -> demoApp.runRelations();
+//		return args -> demoApp.runAbstract();
+		return args -> demoApp.runRelations();
 	}
 
 
